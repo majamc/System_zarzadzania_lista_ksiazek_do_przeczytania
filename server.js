@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 
 const { PORT } = require("./config");
 const { MENU_LINKS } = require("./constants/navigation");
+const { mongoConnect } = require("./database");
 const { STATUS_CODE } = require("./constants/statusCode");
 const logger = require("./utils/logger");
 const homeRoutes = require("./routing/home");
@@ -45,6 +46,6 @@ app.use((request, response) => {
   logger.getErrorLog(url);
 });
 
-app.listen(PORT, () => {
-  console.log(`Serwer działa na http://localhost:${PORT}`);
+mongoConnect(() => {
+  app.listen(PORT);
 });

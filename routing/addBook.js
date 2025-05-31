@@ -1,7 +1,7 @@
 const express = require("express");
-const addBookController = require("../controllers/addBookController");
+const { renderSearch } = require("../controllers/addBookController");
 const router = express.Router();
 
-router.get("/add", addBookController.getAddBooksView);
+router.get("/add", renderSearch);
 
 module.exports = router;

@@ -5,9 +5,53 @@
     <link rel="stylesheet" href="/css/main.css" />
   </head>
   <body>
-    <%- include('partials/navigation', { menuLinks: menuLinks, activeLinkPath:activeLinkPath}); %>
+    <%- include('partials/navigation', { menuLinks, activeLinkPath }); %>
     <main>
       <h1>Search for a book</h1>
+      <form action="/add" method="GET">
+        <input
+          type="text"
+          name="query"
+          placeholder="Title or author"
+          value="<%= query %>"
+          required
+        />
+        <button type="submit">Search</button>
+      </form>
+
+      <% if (books && books.length > 0) { %>
+        <h2>Results:</h2>
+        <ul>
+          <% books.forEach(book => {
+            const info = book.volumeInfo;
+          %>
+            <li class= "book-info">
+              <h3>Title: <%= info.title %></h3>
+              <% if (info.authors) { %>
+                <p><strong>Authors:</strong> <%= info.authors.join(', ') %></p>
+              <% } %>
+              <% if (info.categories) { %>
+                <p><strong>Genre:</strong> <%= info.categories.join(', ') %></p>
+              <% } %>
+
+              <% if (info.imageLinks && info.imageLinks.thumbnail) { %>
+                <img src="<%= info.imageLinks.thumbnail %>" alt="Book Cover" />
+              <% } %>
+
+              <form action="/list" method="POST">
+                <input type="hidden" name="title" value="<%= info.title %>">
+                <input type="hidden" name="authors" value="<%= info.authors ? info.authors.join(', ') : '' %>">
+                <input type="hidden" name="thumbnail" value="<%= info.imageLinks?.thumbnail || '' %>">
+                <input type="hidden" name="categories" value="<%= info.categories ? info.categories.join(', ') : '' %>">
+                <button type="submit">Add to list</button>
+              </form>
+              
+            </li>
+          <% }); %>
+        </ul>
+      <% } else if (query) { %>
+        <p>No results "<%= query %>".</p>
+      <% } %>
     </main>
   </body>
 </html>

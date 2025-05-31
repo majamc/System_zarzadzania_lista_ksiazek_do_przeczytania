@@ -1,13 +1,33 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= headTitle %></title>
-    <link rel="stylesheet" href="/css/main.css" />
-  </head>
-  <body>
-    <%- include('partials/navigation', { menuLinks: menuLinks, activeLinkPath:activeLinkPath}); %>
-    <main>
-      <h1>Your list</h1>
-    </main>
-  </body>
+<head>
+  <title><%= headTitle %></title>
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <%- include('partials/navigation', { menuLinks, activeLinkPath }); %>
+  <main>
+    <h1>My List</h1>
+    <% if (books.length > 0) { %>
+      <ul>
+        <% books.forEach(book => { %>
+          <li class= "book-info">
+            <h3>Title: <%= book.title %></h3>
+            <% if (book.authors) { %>
+              <p><strong>Authors:</strong> <%= book.authors %></p>
+            <% } %>
+            <% if (book.categories) { %>
+              <p><strong>Genre:</strong> <%= book.categories %></p>
+            <% } %>
+            <% if (book.thumbnail) { %>
+              <img src="<%= book.thumbnail %>" alt="Book Cover">
+            <% } %>
+          </li>
+        <% }) %>
+      </ul>
+    <% } else { %>
+      <p>No books on the list yet.</p>
+    <% } %>
+  </main>
+</body>
 </html>
