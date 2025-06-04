@@ -1,21 +1,44 @@
 const { MENU_LINKS } = require("../constants/navigation");
-const savedBooks = [];
+const Book = require("../models/Book");
 
-const addBookToList = (req, res) => {
+
+const addBookToList = async (req, res) => {
   const { title, authors, thumbnail, categories } = req.body;
- savedBooks.push({ title, authors, thumbnail, categories });
+  try {
+    const book = new Book(title, authors, thumbnail, categories);
+    await book.save();
+    //res.redirect("/list");
+  } catch (err) {
+    res.status(500).send("Failed to save the book.");
+  }
 };
 
-const getListPage = (req, res) => {
-  res.render("my-list", {
-    headTitle: "My List",
-    menuLinks: MENU_LINKS,
-    activeLinkPath: "/list",
-    books: savedBooks,
-  });
+const deleteBook = async (req, res) => {
+  const bookId = req.params.id;
+  try {
+    await Book.deleteById(bookId);
+    res.redirect("/list");
+  } catch (err) {
+    res.status(500).send("Failed to delete the book.");
+  }
+};
+
+const getListPage = async (req, res) => {
+  try {
+    const books = await Book.fetchAll();
+    res.render("my-list", {
+      headTitle: "My List",
+      menuLinks: MENU_LINKS,
+      activeLinkPath: "/list",
+      books: books.slice().reverse(),
+    });
+  } catch (err) {
+    res.status(500).send("Failed to fetch books.");
+  }
 };
 
 module.exports = {
   getListPage,
-  addBookToList
+  addBookToList,
+  deleteBook
 };

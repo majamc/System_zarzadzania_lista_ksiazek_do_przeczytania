@@ -43,7 +43,8 @@
                 <input type="hidden" name="authors" value="<%= info.authors ? info.authors.join(', ') : '' %>">
                 <input type="hidden" name="thumbnail" value="<%= info.imageLinks?.thumbnail || '' %>">
                 <input type="hidden" name="categories" value="<%= info.categories ? info.categories.join(', ') : '' %>">
-                <button type="submit">Add to list</button>
+                <button id="addButton" type="submit">Add to list</button>
+                <span id="add-message" style="margin-left: 1rem; color: green;"></span>
               </form>
               
             </li>
@@ -55,3 +56,11 @@
     </main>
   </body>
 </html>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelector("#addButton").addEventListener("click", () => {
+      document.getElementById("add-message").innerHTML="Book Added";
+    });
+  });
+</script>

@@ -22,6 +22,10 @@
             <% if (book.thumbnail) { %>
               <img src="<%= book.thumbnail %>" alt="Book Cover">
             <% } %>
+           <form action="/list/delete/<%= book._id %>" method="POST">
+              <button type="submit">Delete</button>
+            </form>
+            <button>Mark as read</button>
           </li>
         <% }) %>
       </ul>
