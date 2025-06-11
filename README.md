@@ -14,6 +14,13 @@ Aplikacja do zarządzania listą książek pomaga użytkownikowi w prosty i zorg
 6. Otwórz przeglądarkę internetową i przejdź na stronę pod adresem http://localhost:3000
 
 ### **Wykorzystane biblioteki zewnętrzne**
+- axion
+- cors
+- dotenv
+- ejs
+- express
+- mongoose
+- nodemon
 
 ### **Struktura aplikacji**
 
