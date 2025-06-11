@@ -7,7 +7,7 @@ Aplikacja do zarządzania listą książek pomaga użytkownikowi w prosty i zorg
 
 ### **Instrukcja uruchomienia aplikacji**
 1. Zainstaluj Node.jslub zaktualizuj go do nowej wersji (v22 lub nowsza).
-2. Zklonuj repozytorium: https://github.com/majamc/MVC_project.git
+2. Sklonuj repozytorium: https://github.com/majamc/MVC_project.git
 3. Otwórz aplikacje w dowolnym edytorze kodu (np. Visual Studio Code).
 4. Otwórz terminal i po wejściu w odpowiedni katalog w którym jest aplikacja wpisz 'npm install' - zainstaluje to potrzebne biblioteki do odpalenia aplikacji.
 5. Napisz w terminalu komendę 'npm start', co odpali aplikacje.
