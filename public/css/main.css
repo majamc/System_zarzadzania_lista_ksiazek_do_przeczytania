@@ -1,4 +1,165 @@
-.book-info{
-    border: 1px solid black;
-    margin-bottom: 20px;
+body {
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+  margin-left: 20;
+  padding: 0;
+  background-color: #ffffff;
+  color: #000000;
+  line-height: 1.6;
+}
+
+main {
+  padding: 2rem;
+}
+
+
+/* Nawigacja */
+.navigation{
+  background-color: #33595E;
+  padding: 0.5rem 0;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.navigation__list {
+  list-style-type: none;
+  margin: 5;
+  margin-left: 20px;
+  padding: 0;
+  display: flex;
+  gap: 6rem;
+}
+
+.navigation__link {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 0.7rem 1rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s ease;
+}
+
+.navigation__link:hover {
+  background-color: #2e4c50;
+}
+
+.navigation__link--active {
+  background-color: #243c3f;
+}
+
+/*Book search bar*/
+.search-input {
+  border-radius: 5px;
+  border: 1px solid gray;
+  padding: 5px 20px; /* bigger padding */
+  font-size: 1.2rem;  /* bigger font */
+  width: 300px;       /* optional: wider input */
+}
+
+.search-button {
+  border-radius: 5px;
+  padding: 5px 25px; /* bigger padding */
+  border: 1px solid gray;
+  background-color: #33595E;
+  color: white;
+  font-size: 1.1rem;  /* bigger font */
+}
+
+.search-button:hover {
+  border-radius: 5px;
+  padding: 5px 25px;
+  background-color: #243c3f;
+  cursor: pointer;
+}
+
+/*Book list*/
+.book-info {
+  list-style: none;
+  margin: 1rem 0;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.book-container {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.book-image img {
+  width: 120px;
+  height: auto;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.book-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.book-details h3 {
+  margin-top: 0;
+}
+
+.add-form {
+  margin-top: auto;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+#addButton {
+  background-color: #373B41;
+  color: white;
+  border: none;
+  padding: 8px 25px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#addButton:hover {
+  background-color: #23262a;
+}
+
+/* Delete i markAsRead buttons */
+.book-button {
+  padding: 8px 25px;;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+.book-button.delete {
+  background-color: #b1303d;
+  color: white;
+}
+
+.book-button.delete:hover {
+  background-color: #66161e;
+}
+
+.book-button.read {
+  background-color: #6c757d;
+  color: white;
+}
+
+.book-button.read:hover {
+  background-color: #5a6268;
+}
+
+.book-button.unread {
+  background-color: #308243;
+  color: white;
+}
+
+.book-button.unread:hover {
+  background-color: #1e512a;
 }

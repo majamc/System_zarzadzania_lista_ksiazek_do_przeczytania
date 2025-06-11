@@ -8,25 +8,58 @@
   <%- include('partials/navigation', { menuLinks, activeLinkPath }); %>
   <main>
     <h1>My List</h1>
+    <form method="GET" action="/list">
+      <input class="search-input" type="text" name="author" placeholder="Author" value="<%= author || '' %>">
+      <input class="search-input" type="text" name="category" placeholder="Category" value="<%= category || '' %>">
+      <select class="search-input" name="status">
+        <option value="">All</option>
+        <option value="read" <%= status === 'read' ? 'selected' : '' %>>Read</option>
+        <option value="unread" <%= status === 'unread' ? 'selected' : '' %>>Unread</option>
+      </select>
+      <button class="search-button" type="submit">Filter</button>
+    </form>
+
     <% if (books.length > 0) { %>
       <ul>
         <% books.forEach(book => { %>
-          <li class= "book-info">
-            <h3>Title: <%= book.title %></h3>
-            <% if (book.authors) { %>
-              <p><strong>Authors:</strong> <%= book.authors %></p>
-            <% } %>
-            <% if (book.categories) { %>
-              <p><strong>Genre:</strong> <%= book.categories %></p>
-            <% } %>
-            <% if (book.thumbnail) { %>
-              <img src="<%= book.thumbnail %>" alt="Book Cover">
-            <% } %>
-           <form action="/list/delete/<%= book._id %>" method="POST">
-              <button type="submit">Delete</button>
-            </form>
-            <button>Mark as read</button>
+          <li class="book-info">
+            <div class="book-container">
+              <% if (book.thumbnail) { %>
+                <div class="book-image">
+                  <img src="<%= book.thumbnail %>" alt="Book Cover">
+                </div>
+              <% } %>
+
+              <div class="book-details">
+                <h3>Title: <%= book.title %></h3>
+
+                <% if (book.authors) { %>
+                  <p><strong>Author:</strong> <%= book.authors %></p>
+                <% } %>
+
+                <% if (book.categories) { %>
+                  <p><strong>Genre:</strong> <%= book.categories %></p>
+                <% } %>
+
+                <div class="add-form">
+                  <form action="/list/delete/<%= book._id %>" method="POST" style="display: inline;">
+                    <button type="submit" class="book-button delete">Delete</button>
+                  </form>
+
+                  <% if (book.status === 'read') { %>
+                    <form action="/list/mark-as-unread/<%= book._id %>" method="POST" style="display: inline;">
+                      <button type="submit" class="book-button unread">Mark as unread</button>
+                    </form>
+                  <% } else { %>
+                    <form action="/list/mark-as-read/<%= book._id %>" method="POST" style="display: inline;">
+                      <button type="submit" class="book-button read">Mark as read</button>
+                    </form>
+                  <% } %>
+                </div>
+              </div>
+            </div>
           </li>
+
         <% }) %>
       </ul>
     <% } else { %>
@@ -35,3 +68,4 @@
   </main>
 </body>
 </html>
+

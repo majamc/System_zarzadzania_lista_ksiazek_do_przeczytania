@@ -10,13 +10,14 @@
       <h1>Search for a book</h1>
       <form action="/add" method="GET">
         <input
+          class="search-input"
           type="text"
           name="query"
           placeholder="Title or author"
           value="<%= query %>"
           required
         />
-        <button type="submit">Search</button>
+        <button class="search-button" type="submit">Search</button>
       </form>
 
       <% if (books && books.length > 0) { %>
@@ -25,28 +26,33 @@
           <% books.forEach(book => {
             const info = book.volumeInfo;
           %>
-            <li class= "book-info">
-              <h3>Title: <%= info.title %></h3>
-              <% if (info.authors) { %>
-                <p><strong>Authors:</strong> <%= info.authors.join(', ') %></p>
-              <% } %>
-              <% if (info.categories) { %>
-                <p><strong>Genre:</strong> <%= info.categories.join(', ') %></p>
-              <% } %>
+            <li class="book-info"> 
+              <div class="book-container">
+                <% if (info.imageLinks && info.imageLinks.thumbnail) { %>
+                  <div class="book-image">
+                    <img src="<%= info.imageLinks.thumbnail %>" alt="Book Cover" />
+                  </div>
+                <% } %>
 
-              <% if (info.imageLinks && info.imageLinks.thumbnail) { %>
-                <img src="<%= info.imageLinks.thumbnail %>" alt="Book Cover" />
-              <% } %>
+                <div class="book-details">
+                  <h3>Title: <%= info.title %></h3>
+                  <% if (info.authors) { %>
+                    <p><strong>Author:</strong> <%= info.authors.join(', ') %></p>
+                  <% } %>
+                  <% if (info.categories) { %>
+                    <p><strong>Genre:</strong> <%= info.categories.join(', ') %></p>
+                  <% } %>
 
-              <form action="/list" method="POST">
-                <input type="hidden" name="title" value="<%= info.title %>">
-                <input type="hidden" name="authors" value="<%= info.authors ? info.authors.join(', ') : '' %>">
-                <input type="hidden" name="thumbnail" value="<%= info.imageLinks?.thumbnail || '' %>">
-                <input type="hidden" name="categories" value="<%= info.categories ? info.categories.join(', ') : '' %>">
-                <button id="addButton" type="submit">Add to list</button>
-                <span id="add-message" style="margin-left: 1rem; color: green;"></span>
-              </form>
-              
+                  <form action="/list" method="POST" class="add-form">
+                    <input type="hidden" name="title" value="<%= info.title %>">
+                    <input type="hidden" name="authors" value="<%= info.authors ? info.authors.join(', ') : '' %>">
+                    <input type="hidden" name="thumbnail" value="<%= info.imageLinks?.thumbnail || '' %>">
+                    <input type="hidden" name="categories" value="<%= info.categories ? info.categories.join(', ') : '' %>">
+                    <button id="addButton" type="submit">Add to list</button>
+                    <span id="add-message" style="margin-left: 1rem; color: green;"></span>
+                  </form>
+                </div>
+              </div>
             </li>
           <% }); %>
         </ul>

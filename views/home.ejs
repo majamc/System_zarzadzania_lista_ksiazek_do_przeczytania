@@ -8,6 +8,32 @@
     <%- include('partials/navigation', { menuLinks: menuLinks, activeLinkPath:activeLinkPath}); %>
     <main>
       <h1>Home page</h1>
+      <% if (newestBook) { %>
+        <p class="text">Your last added book:</p>
+        <ul>
+          <li class="book-info"> 
+            <div class="book-container">
+              <% if (newestBook.thumbnail) { %>
+                <div class="book-image">
+                  <img src="<%= newestBook.thumbnail %>" alt="Book Cover" />
+                </div>
+              <% } %>
+
+              <div class="book-details">
+                <h3>Title: <%= newestBook.title %></h3>
+                <% if (newestBook.authors) { %>
+                  <p><strong>Author:</strong> <%= newestBook.authors %></p>
+                <% } %>
+                <% if (newestBook.categories) { %>
+                  <p><strong>Genre:</strong> <%= newestBook.categories %></p>
+                <% } %>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <% } else { %>
+      <p>No books added yet.</p>
+    <% } %>
     </main>
   </body>
 </html>
