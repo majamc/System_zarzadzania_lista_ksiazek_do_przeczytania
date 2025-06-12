@@ -4,11 +4,11 @@
 Aplikacja do zarządzania listą książek pomaga użytkownikowi w prosty i zorganizowany sposób zarządzać książkami które chce przeczytać. Lista książek posiada również bardzo przydatne funkcje takie jak zaznaczanie książek jako przeczytanych, usuwanie książek lub filtrowanie książek po autorze, kategorii książki lub statusu (przeczytana, nieprzeczytana lub wszystkie).
 
 ### **Funkcjonalności**
-- Wyszukiwanie książek - możliwość wyszukiwania książek po tytule bądź autorze
-- Dodawanie książek do listy - możliwość dodania wyszukanych książek do listy za pomocą przycisku "Add to list"
-- Usuwanie książek z listy - możliwość usunięcia książek z listy za pomocą przycisku "Delete"
-- Zaznaczanie książek jako przeczytane/nieprzeczytane - w liście książek każda książka ma przycisk "Mark as read" co zaznaczy ją jako przeczytaną, w razie pomyłki pojawia się przycisk "Mark as unread" który zaznacza książkę jako nieprzeczytaną
-- Filtrowanie książek - możliwość filtrowania książek po autorze, gatunku lub statusu przeczytania. Książki można filtrować dowolnie.
+- **Wyszukiwanie książek** - możliwość wyszukiwania książek po tytule bądź autorze
+- **Dodawanie książek do listy** - możliwość dodania wyszukanych książek do listy za pomocą przycisku "Add to list"
+- **Usuwanie książek z listy** - możliwość usunięcia książek z listy za pomocą przycisku "Delete"
+- **Zaznaczanie książek jako przeczytane/nieprzeczytane** - w liście książek każda książka ma przycisk "Mark as read" co zaznaczy ją jako przeczytaną, w razie pomyłki pojawia się przycisk "Mark as unread" który zaznacza książkę jako nieprzeczytaną
+- **Filtrowanie książek** - możliwość filtrowania książek po autorze, gatunku lub statusu przeczytania. Książki można filtrować dowolnie.
 
 ### **Instrukcja uruchomienia aplikacji**
 1. Zainstaluj Node.jslub zaktualizuj go do nowej wersji (v22 lub nowsza).
