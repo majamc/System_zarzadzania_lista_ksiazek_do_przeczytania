@@ -4,7 +4,7 @@ const Book = require("../models/Book");
 
 exports.getHomeView = async (request, response) => {
   try {
-    const newestBook = await Book.getLastAdded(); // ✅ await!
+    const newestBook = await Book.getLastAdded();
     
     response.render("home.ejs", {
       headTitle: "Home",

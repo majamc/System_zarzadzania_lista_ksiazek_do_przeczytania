@@ -10,7 +10,7 @@
     <h1>My List</h1>
     <form method="GET" action="/list">
       <input class="search-input" type="text" name="author" placeholder="Author" value="<%= author || '' %>">
-      <input class="search-input" type="text" name="category" placeholder="Category" value="<%= category || '' %>">
+      <input class="search-input" type="text" name="category" placeholder="Genre" value="<%= category || '' %>">
       <select class="search-input" name="status">
         <option value="">All</option>
         <option value="read" <%= status === 'read' ? 'selected' : '' %>>Read</option>
