@@ -52,18 +52,18 @@ main {
 .search-input {
   border-radius: 5px;
   border: 1px solid gray;
-  padding: 5px 20px; /* bigger padding */
-  font-size: 1.2rem;  /* bigger font */
-  width: 300px;       /* optional: wider input */
+  padding: 5px 20px;
+  font-size: 1.2rem;
+  width: 300px; 
 }
 
 .search-button {
   border-radius: 5px;
-  padding: 5px 25px; /* bigger padding */
+  padding: 5px 25px; 
   border: 1px solid gray;
   background-color: #33595E;
   color: white;
-  font-size: 1.1rem;  /* bigger font */
+  font-size: 1.1rem;
 }
 
 .search-button:hover {

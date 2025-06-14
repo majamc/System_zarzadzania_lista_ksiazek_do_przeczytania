@@ -32,10 +32,10 @@ class Book {
     const db = getDatabase();
     const lastBook = await db.collection("books")
       .find()
-      .sort({ _id: -1 }) // sortuje od najnowszych
+      .sort({ _id: -1 })
       .limit(1)
       .toArray();
-    return lastBook[0]; // tylko jedna książka
+    return lastBook[0];
   }
 
 
@@ -55,7 +55,7 @@ class Book {
       query.status = status;
     }
 
-    console.log("QUERY:", query); // debug
+    console.log("QUERY:", query);
     return db.collection("books").find(query).toArray();
   }
 
@@ -76,7 +76,5 @@ class Book {
   }
 
 }
-
-
 
 module.exports = Book;

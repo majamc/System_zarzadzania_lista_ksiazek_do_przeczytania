@@ -1,13 +1,13 @@
+<!DOCTYPE html>
 <html>
   <head>
     <title><%= headTitle %></title>
     <link rel="stylesheet" href="/css/main.css" />
   </head>
   <body>
+    <%- include('partials/navigation', { menuLinks: menuLinks, activeLinkPath:activeLinkPath}); %>
     <main>
-      <%- include('partials/navigation', { menuLinks: menuLinks, activeLinkPath:
-      activeLinkPath}); %>
-      <h1 class="heading">404 - Not Found</h1>
+      <h1>404 Page not found</h1>
     </main>
   </body>
 </html>

@@ -28,13 +28,10 @@ app.use((request, _response, next) => {
   next();
 })
 
-//ROUTING
 app.use("/", homeRoutes);
 app.use(bookRoutes);
 app.use(listRoutes);
 
-
-// Obsługa błędów 404
 app.use((request, response) => {
   const { url } = request;
 

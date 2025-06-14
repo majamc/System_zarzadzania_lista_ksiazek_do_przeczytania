@@ -7,7 +7,6 @@ const addBookToList = async (req, res) => {
   try {
     const book = new Book(title, authors, thumbnail, categories);
     await book.save();
-    //res.redirect("/list");
   } catch (err) {
     res.status(500).send("Failed to save the book.");
   }
