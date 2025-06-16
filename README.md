@@ -12,7 +12,7 @@ Aplikacja do zarządzania listą książek pomaga użytkownikowi w prosty i zorg
 
 ### **Instrukcja uruchomienia aplikacji**
 1. Zainstaluj Node.js lub zaktualizuj go do nowej wersji (v22 lub nowsza).
-2. Sklonuj repozytorium: https://github.com/majamc/MVC_project.git
+2. Sklonuj repozytorium: https://github.com/majamc/System_zarzadzania_lista_ksiazek_do_przeczytania.git
 3. Otwórz aplikacje w dowolnym edytorze kodu (np. Visual Studio Code).
 4. Otwórz terminal i po wejściu w odpowiedni katalog w którym jest aplikacja wpisz 'npm install' - zainstaluje to potrzebne biblioteki do odpalenia aplikacji.
 5. Napisz w terminalu komendę 'npm start', co odpali aplikacje.
@@ -27,7 +27,7 @@ Aplikacja do zarządzania listą książek pomaga użytkownikowi w prosty i zorg
 ### **Struktura aplikacji**
 - **constants** - zawiera elementy nawigacji oraz statusy kodów.
 - **controllers** - kontrolery odpowiedzialne za logikę pomiędzy widokami a modelami. addBookController.js jest odpowiedzialny za renderowanie podstrony "Add Books", homeController.js za renderowanie strony głównej a myListController.js zawiera renderowanie podstrony "My List" oraz umożliwia dodawanie książek do listy, usuwanie i filtrowanie książek oraz aktualizację statusu przeczytania.
-- **models** - zawiera modele, które są odpowiedzialne za dane i logikę biznesową. book.js reprezentuje książki zapisane przez użytkownika w lokalnej bazie danych MongoDB. Obsługuje dodawanie, pobieranie, filtrowanie, usuwanie i aktualizację statusu książek. googleBook.js pobiera dane o książkach z publicznego Google Books API na podstawie zapytania wyszukiwania użytkownika.
+- **models** - zawiera modele, które są odpowiedzialne za dane i logikę biznesową. book.js reprezentuje książki zapisane przez użytkownika w bazie danych MongoDB. Obsługuje dodawanie, pobieranie, filtrowanie, usuwanie i aktualizację statusu książek. googleBook.js pobiera dane o książkach z publicznego Google Books API na podstawie zapytania wyszukiwania użytkownika.
 - **public** - zawiera pliki statyczne, w tym folder css z plikiem main.css, który stylizuje aplikację i poprawia wygląd interfejsu użytkownika.
 - **routing** - definiuje trasy aplikacji. Zawiera home.js obsługujący routing strony głównej, addBook.js obsługujący routing podstrony "Add Books" i myList.js odpowiadający za routing podstrony "My List"
 - **utils** - posiada logger do logowania czynności użytkownika oraz getFileFromAbsolutePath do łatwiejszego używania ścieżek w kodzie
